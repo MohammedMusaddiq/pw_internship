@@ -9,4 +9,4 @@
 sample_list = ['red', 'black', 'white', 'green', 'orange']
 substring = 'ack'
 output = list(filter(lambda x: substring in x, sample_list))
-print(list(output))
+print(output)
