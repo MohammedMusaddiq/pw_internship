@@ -5,7 +5,8 @@ from customer c,
      `order` o
 where c.customer_id = o.customer_id
 group by c.customer_id
-order by order_count desc;
+order by order_count desc
+limit 1;
 
 
 
