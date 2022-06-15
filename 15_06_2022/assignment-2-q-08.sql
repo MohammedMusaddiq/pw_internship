@@ -1,6 +1,3 @@
--- Fetch the Customer details, who has placed the first and last order
-
-
 -- Fetch the customer details, who has placed multiple orders in the same year
 
 select customer_id, year(order_date), count(*)
