@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 -- 1. Fetch all the Customer Details along with the product names that the customer has ordered.
 
-=======
->>>>>>> 2ac5bfc41b2009dbc0e5d4203e78aba39b57dae1
 select c.customer_name, p.product_name, od.quantity
 from customer c,
      product p,
