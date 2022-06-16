@@ -1,5 +1,6 @@
 -- write a query to list the details and total experience of all the managers
 
+
 SELECT 
     emp_name,
     hire_date,
