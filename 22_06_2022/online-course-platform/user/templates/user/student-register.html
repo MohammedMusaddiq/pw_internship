@@ -20,7 +20,7 @@
                 {% include 'components/alert.html' %}
                 <form class="text-center border border-light px-2 py-4" action="{% url 'user:student-register' %}" method="POST">
                     {% csrf_token %}
-                    <p class="h4 mb-4">Sign up</p>
+                    <p class="h4 mb-4">Sign up ~ Student</p>
                     <div class="form-row mb-4">
                         <div class="col">
                             <input type="text" name="first_name" id="id_first_name" class="form-control mb-4"

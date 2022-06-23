@@ -20,7 +20,7 @@
                 {% include 'components/alert.html' %}
                 <form class="text-center border border-light px-5 pt-2 pb-2" action="{% url 'user:student-login' %}" method="POST">
                     {% csrf_token %}
-                    <p class="h4 mb-4 mt-0">Sign in</p>
+                    <p class="h4 mb-4 mt-0">Sign in ~ Student</p>
                     <input type="email" name="email" id="id_email" class="form-control mb-4" placeholder="E-mail">
                     <input type="password" name="password" id="id_password" class="form-control mb-4"
                            placeholder="Password">
