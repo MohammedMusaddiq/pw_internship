@@ -1,30 +1,28 @@
-from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import login, authenticate, get_user_model, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.views.generic.base import TemplateView
 from django.views import View
+from django.views.generic.base import TemplateView
+
 
 User = get_user_model()
 
 
-class WelcomePage(TemplateView):
-    template_name = 'user/welcome.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Welcome To Digi Academy'
-        return context
-
-    def get(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return render(request, self.template_name)
-        u = User.objects.get(id=self.request.user.id)
+def WelcomePage(request):
+    context = {
+        'title': 'DA | Welcome'
+    }
+    if request.user.is_authenticated:
+        u = User.objects.get(id=request.user.id)
         if u.is_student:
             return redirect('student:student-dashboard')
         elif u.is_teacher:
-            return redirect('teacher:teachers-dashboard')
+            return redirect('teacher:teacher-dashboard')
+        else:
+            return render(request, 'user/welcome.html', context)
+
+    return render(request, 'user/welcome.html', context)
 
 
 class StudentLoginView(View):

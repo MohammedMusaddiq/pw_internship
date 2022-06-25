@@ -1,5 +1,7 @@
 from pathlib import Path
+
 from django.contrib.messages import constants as messages
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +34,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -104,6 +107,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -112,9 +116,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
-CSRF_TRUSTED_ORIGINS = ['https://9c32-150-129-61-231.in.ngrok.io', ]
+CSRF_TRUSTED_ORIGINS = ['https://8e9d-150-129-61-231.in.ngrok.io', ]
 
 MESSAGE_TAGS = {
     messages.SUCCESS: 'primary',
     messages.ERROR: 'danger',
 }
+
+django_heroku.settings(locals())

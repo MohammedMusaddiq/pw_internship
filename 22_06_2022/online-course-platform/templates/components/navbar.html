@@ -17,13 +17,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if navbar == 'student-courses' %}active{% endif %}"
-                           href="#">My-Courses</a>
+                           href="{% url 'student:my-courses' %}">My-Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if navbar == 'student-explore' %}active{% endif %}" href="#">Explore</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if navbar == 'student-profile' %}active{% endif %}" href="#">Profile</a>
+                        <a class="nav-link {% if navbar == 'student-explore' %}active{% endif %}"
+                           href="{% url 'student:student-explore' %}">Explore</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex flex-row ms-auto me-3">
@@ -54,10 +52,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if navbar == 'teacher-students' %}active{% endif %}"
-                           href="#">Students</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if navbar == 'teacher-profile' %}active{% endif %}" href="#">Profile</a>
+                           href="{% url 'teacher:student-list' %}">Students</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex flex-row ms-auto me-3">
